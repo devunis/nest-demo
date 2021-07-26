@@ -5,14 +5,14 @@ import { AppService } from './app.service';
 import { LocalAuthGuard } from './auth/auth.local-auth.guard';
 import { AuthService } from './auth/auth.service';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
-import { UsersService } from './users/users.service';
+import { UserService } from './user/user.service';
 
 @Controller()
 export class AppController {
   constructor(
     private readonly appService: AppService,
     private authService: AuthService,
-    private usersService: UsersService,
+    private userService: UserService,
     private boardService: BoardService,
     private boardLikeService: BoardLikeService) {}
 
@@ -61,7 +61,7 @@ export class AppController {
   @Post('register')
   @Redirect('login')
   register(@Request() req){
-    return this.usersService.register(req.body)
+    return this.userService.register(req.body)
   }
 
   @UseGuards(JwtAuthGuard)

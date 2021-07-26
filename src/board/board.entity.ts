@@ -1,5 +1,5 @@
 import { BoardLike } from "src/board-like/board-like.entity";
-import { Users } from "src/users/users.entity";
+import { User } from "src/user/user.entity";
 import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
@@ -13,8 +13,8 @@ export class Board{
     @Column()
     content!: string
 
-    @ManyToOne(type => Users, user => user.boards)
-    user : Users
+    @ManyToOne(type => User, user => user.boards)
+    user : User
 
     @OneToMany(type => BoardLike, boardLike => boardLike.board)
     boardLike: BoardLike[]

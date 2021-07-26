@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Users } from 'src/users/users.entity';
+import { User } from 'src/user/user.entity';
 import { Repository } from 'typeorm';
 import { Board } from './board.entity';
 
@@ -9,12 +9,12 @@ export class BoardService {
     constructor (
         @InjectRepository(Board)
         private boardRepository: Repository<Board>,
-        @InjectRepository(Users)
-        private userRepository: Repository<Users>
+        @InjectRepository(User)
+        private userRepository: Repository<User>
     ){}
 
     async boardRegister(board: Board, user: any){
-        const users = await this.userRepository.findOne({userId: user.userId})
+        const users = await this.userRepository.findOne({id: user.id})
         return this.boardRepository.save({title : board.title, content : board.content, user: users})
     }
 

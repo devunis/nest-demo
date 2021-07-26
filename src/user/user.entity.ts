@@ -1,11 +1,11 @@
-import { BoardLike } from './../board-like/board-like.entity';
-import { Board } from './../board/board.entity';
+import { BoardLike } from '../board-like/board-like.entity';
+import { Board } from '../board/board.entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
-export class Users{
+export class User{
     @PrimaryGeneratedColumn()
-    userId: number
+    id: number
 
     @Column()
     username!: string
