@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { GraphQLModule } from '@nestjs/graphql';
 import { Connection } from 'typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -15,6 +16,7 @@ import { BoardLikeModule } from './board-like/board-like.module';
     AuthModule, 
     UsersModule,
     TypeOrmModule.forRoot(),
+    GraphQLModule.forRoot({}),
     BoardModule,
     BoardLikeModule,
   ],
