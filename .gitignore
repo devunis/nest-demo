@@ -2,7 +2,7 @@
 /dist
 /node_modules
 
-/src/auth/auth.constants.ts
+src/auth/auth.constants.ts
 
 # Logs
 logs
